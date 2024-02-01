@@ -57,9 +57,23 @@ int main() {
     scoreCountText.setStyle(sf::Text::Bold);
     scoreCountText.setPosition(10,10);
 
+    //Start Button
+    sf::RectangleShape startButton(sf::Vector2f(200, 100));
+    startButton.setFillColor(sf::Color::Green);
+    startButton.setPosition(300,250);
 
+    sf::Text startButtonText;
+    startButtonText.setFont(font);
+    startButtonText.setString("Start");
+    startButtonText.setCharacterSize(30);
+    startButtonText.setFillColor(sf::Color::White);
 
+    sf::FloatRect startButtonTextRect = startButtonText.getLocalBounds();
+    startButtonText.setOrigin(startButtonTextRect.left + startButtonTextRect.width/2.0f,
+                                startButtonTextRect.top + startButtonTextRect.height/2.0f);
+    startButtonText.setPosition(startButton.getPosition() + sf::Vector2f(startButton.getSize() / 2.0f));
 
+//GAME LOOP
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
